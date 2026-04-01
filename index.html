@@ -9,62 +9,224 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* 1. THE SETUP */
         * { box-sizing: border-box; }
+        
         p { margin: 0; margin-bottom: 15px; }
-        body { background-color: #020617; display: grid; gap: 40px; grid-template-columns: 1fr; margin: 0; min-height: 100vh; padding: 40px 0; place-items: center; }
-        .slide-container { align-items: center; background-color: #0f172a; border-radius: 12px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; font-family: 'Inter', sans-serif; height: 720px; justify-content: center; overflow: hidden; padding: 60px; position: relative; width: 1280px; border: 1px solid #1e293b; }
-        .slide-container::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.04) 0%, rgba(15, 23, 42, 0) 50%); z-index: 0; pointer-events: none; }
+
+        body {
+            background-color: #020617; 
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #0f172a; 
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+            border: 1px solid #1e293b;
+        }
+
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.04) 0%, rgba(15, 23, 42, 0) 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
         .slide-container > * { position: relative; z-index: 1; }
 
-        .slide-container h1, .slide-container h2, .slide-container h3, .slide-container h4 { color: #f8fafc; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
-        .slide-container p, .slide-container li, .slide-container .subtitle, .slide-container th, .slide-container td { color: #94a3b8; font-family: 'Inter', sans-serif; font-weight: 400; }
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1, .slide-container h2, .slide-container h3, .slide-container h4 {
+            color: #f8fafc;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .slide-container p, .slide-container li, .slide-container .subtitle, .slide-container th, .slide-container td {
+            color: #94a3b8;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
         .slide-container h1 { font-size: 72px; line-height: 1.1; }
         .slide-container .slide-title { font-size: 48px; font-weight: 800; margin-bottom: 40px; text-align: left; width: 100%; color: #f8fafc; }
         .slide-container h3 { font-size: 32px; font-weight: 600; margin-bottom: 20px; color: #f8fafc; }
         .slide-container p, .slide-container li { font-size: 20px; line-height: 1.6; }
         .slide-container .subtitle { font-size: 24px; font-weight: 300; margin: 24px auto; color: #cbd5e1; }
+        
         .footer-tag { position: absolute; bottom: 30px; left: 60px; font-size: 14px; color: #475569; letter-spacing: 0.1em; text-transform: uppercase; }
 
-        .content-area { align-items: center; display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; }
+        .content-area {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
         .text-red { color: #dc2626; }
         .text-blue { color: #38bdf8; }
         .text-green { color: #10b981; }
 
+        /* 3. LAYOUT DEFINITIONS */
         .title-layout { text-align: center; max-width: 950px; }
-        .partnership-logos { display: flex; align-items: center; justify-content: center; gap: 50px; margin-bottom: 40px; background: rgba(255,255,255,0.02); padding: 30px 60px; border-radius: 16px; border: 1px solid #1e293b; box-shadow: inset 0 2px 10px rgba(0,0,0,0.2); }
+        
+        .partnership-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.02);
+            padding: 30px 60px;
+            border-radius: 16px;
+            border: 1px solid #1e293b;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
         .partnership-logos .plus { color: #475569; font-size: 32px; font-weight: 300; }
-        .logo-box { background: #ffffff; padding: 15px 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 85px; min-width: 220px; }
+        
+        .logo-box {
+            background: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 85px;
+            min-width: 220px;
+        }
         .logo-box img { max-height: 55px; width: auto; object-fit: contain; }
 
-        .two-column { align-items: flex-start; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; width: 100%; }
-        .two-column ul { list-style: none; margin: 0; padding: 0; }
-        .two-column li { margin-bottom: 24px; padding-left: 36px; position: relative; }
-        .two-column li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #dc2626; position: absolute; left: 0; top: 2px; font-size: 20px; }
+        .two-column {
+            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 100%;
+        }
 
-        .pricing-block { background: rgba(220, 38, 38, 0.05); border: 1px solid rgba(220, 38, 38, 0.2); border-radius: 12px; padding: 40px; text-align: center; margin-top: 10px; }
+        .two-column ul { list-style: none; margin: 0; padding: 0; }
+        .two-column li {
+            margin-bottom: 24px;
+            padding-left: 36px;
+            position: relative;
+        }
+        .two-column li::before {
+            content: '\f058'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #dc2626;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 20px;
+        }
+
+        /* Pricing Block */
+        .pricing-block {
+            background: rgba(220, 38, 38, 0.05);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 10px;
+        }
         .pricing-block .price { font-size: 64px; font-weight: 800; color: #f8fafc; line-height: 1; margin-bottom: 10px; letter-spacing: -0.03em;}
         .pricing-block .sub-price { font-size: 20px; color: #94a3b8; }
 
-        .tiled-content { align-items: stretch; display: flex; gap: 30px; justify-content: center; width: 100%; }
-        .tile { align-items: flex-start; background-color: #1e293b; border-radius: 12px; border: 1px solid #334155; display: flex; flex-direction: column; flex: 1; justify-content: flex-start; padding: 40px 30px; text-align: left; }
-        .tile .icon { color: #dc2626; font-size: 40px; margin-bottom: 24px; }
-        .tile h3 { font-size: 24px; color: #f8fafc; }
+        /* Tiled Content */
+        .tiled-content {
+            align-items: stretch;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .tile {
+            align-items: flex-start;
+            background-color: #1e293b;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: flex-start;
+            padding: 40px 30px;
+            text-align: left;
+        }
+
+        .tile .icon {
+            color: #dc2626;
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+        .tile h3 { font-size: 24px; color: #f8fafc;}
         .tile p { font-size: 18px; color: #94a3b8; }
 
+        /* Highlight Numbers */
         .highlight-numbers-layout { align-items: center; }
         .highlight-numbers-layout > div:first-child { flex: 0 0 45%; text-align: left; padding-right: 40px; border-right: 1px solid #334155;}
-        .highlight-numbers-layout .number { color: #f8fafc; font-size: 90px; font-weight: 800; line-height: 1; margin-bottom: 10px; letter-spacing: -0.04em; }
+        .highlight-numbers-layout .number {
+            color: #f8fafc;
+            font-size: 90px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -0.04em;
+        }
         .highlight-numbers-layout .number-label { font-size: 28px; font-weight: 600; color: #dc2626; margin-bottom: 8px;}
         .highlight-numbers-layout .naira-label { font-size: 22px; font-weight: 400; color: #64748b; }
 
+        /* Table Layout (4 Tiers) */
         .table-layout { width: 100%; background: #1e293b; border-radius: 12px; border: 1px solid #334155; overflow: hidden; }
         .table-layout table { border-collapse: collapse; width: 100%; }
-        .table-layout th, .table-layout td { border-bottom: 1px solid #334155; padding: 20px 24px; text-align: left; font-size: 18px; }
-        .table-layout th { background-color: #0f172a; color: #f8fafc; font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+        .table-layout th, .table-layout td {
+            border-bottom: 1px solid #334155;
+            padding: 20px 24px;
+            text-align: left;
+            font-size: 18px;
+        }
+        .table-layout th {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
         .table-layout tr:last-child td { border-bottom: none; }
+        /* Highlight recommended tier */
         .table-layout th:nth-child(2), .table-layout td:nth-child(2) { background-color: rgba(220, 38, 38, 0.05); border-left: 1px solid #334155; border-right: 1px solid #334155; }
         .table-layout th:nth-child(2) { color: #dc2626; }
 
+        /* Q&A Layout */
+        .qa-layout { margin: 0 auto; text-align: center; width: 100%; align-self: center; }
+
+        /* AI Interactive Elements */
         .ai-panel { background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 40px; width: 100%; text-align: left;}
         .ai-input-group { display: flex; gap: 20px; margin-bottom: 20px; }
         .ai-input-group input { flex: 1; padding: 15px 20px; background: #0f172a; border: 1px solid #334155; color: #f8fafc; border-radius: 8px; font-size: 16px; font-family: 'Inter', sans-serif;}
@@ -74,7 +236,6 @@
         .ai-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         .ai-output { margin-top: 30px; padding: 25px; background: #020617; border-radius: 8px; border: 1px solid #1e293b; min-height: 150px; color: #cbd5e1; font-size: 16px; line-height: 1.6;}
 
-        .qa-layout { margin: 0 auto; text-align: center; width: 100%; align-self: center; }
     </style>
 </head>
 <body>
@@ -90,7 +251,7 @@
         <h1>Enterprise Architecture & <br><span class="text-red">Digital Transformation</span></h1>
         <p class="subtitle">A strategic roadmap to secure, automate, and scale IDPC operations beyond static infrastructure.</p>
     </div>
-    <div class="footer-tag">Gombe, Nigeria | Phase 1 & 2 Execution</div>
+    <div class="footer-tag">Yola, Nigeria | Phase 1 & 2 Execution</div>
 </div>
 
 <div class="slide-container">
@@ -98,13 +259,13 @@
     <div class="content-area">
         <div class="two-column">
             <div>
-                <p>Scaling a premier engineering firm requires internal infrastructure that matches your external growth. Vendorlift specializes in bespoke, agile architectures and enterprise-grade internal tools.</p>
-                <p>We do not sell bloated, off-the-shelf software. We engineer precise, lightweight solutions targeted directly at your most expensive operational bottlenecks.</p>
+                <p>Scaling a premier engineering firm requires internal infrastructure that matches your external growth. Vendorlift is not a standard web design agency; we specialize in high-performance architecture, cloud deployments, and enterprise-grade internal tools.</p>
+                <p>Our mandate is to ensure IDPC possesses a digital ecosystem that reflects the exact same level of engineering excellence you deliver to your clients across Nigeria.</p>
             </div>
             <div>
                 <ul>
-                    <li><strong style="color: #f8fafc;">Custom Web Architectures:</strong> High-speed codebases built for scale.</li>
-                    <li><strong style="color: #f8fafc;">Cloud Deployments:</strong> Secure Hostinger VPS and dynamic storage solutions.</li>
+                    <li><strong style="color: #f8fafc;">Custom Web Architectures:</strong> High-speed codebases built specifically for scale.</li>
+                    <li><strong style="color: #f8fafc;">Cloud Deployments:</strong> Experts in Hostinger VPS and scalable server infrastructure.</li>
                     <li><strong style="color: #f8fafc;">Automated Data Routing:</strong> Custom ERP logic ensuring rapid internal communication.</li>
                 </ul>
             </div>
@@ -117,18 +278,23 @@
     <div class="content-area">
         <div class="two-column highlight-numbers-layout">
             <div>
-                <div class="number">₦500k</div>
+                <div class="number">₦387k</div>
                 <div class="number-label">Phase 1 Handover Fee</div>
                 <div class="naira-label">Billed for immediate deployment</div>
             </div>
             <div>
-                <h3 style="color: #f8fafc;">The Marketing & Compliance Engine</h3>
-                <p>The public-facing website has been successfully engineered from scratch for maximum speed, bypassing slow plugins to achieve an elite Lighthouse performance score.</p>
-                <p>This milestone fee covers the custom codebase, dynamic compliance displays, and the complete handover to the live Hostinger domain today.</p>
+                <h3 style="color: #f8fafc;">Phase 1 Fee Breakdown</h3>
+                <p>The marketing & compliance engine has been engineered for maximum performance. This fee is justified as follows:</p>
+                <ul style="color: #f8fafc; font-size: 18px;">
+                    <li><i class="fa-solid fa-server text-blue" style="margin-right: 10px;"></i> Hostinger Shared Hosting (Light & Speed).</li>
+                    <li><i class="fa-solid fa-link text-blue" style="margin-right: 10px;"></i> Domain Registration (`idpc.com.ng`).</li>
+                    <li><i class="fa-solid fa-gears text-blue" style="margin-right: 10px;"></i> Initial Server Setup & Optimization.</li>
+                    <li><i class="fa-solid fa-code text-blue" style="margin-right: 10px;"></i> Codebase Engineering & Phase 1 Handover.</li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="footer-tag">Immediate Action Required</div>
+    <div class="footer-tag">Yola live domain launch ready</div>
 </div>
 
 <div class="slide-container">
@@ -155,75 +321,64 @@
 </div>
 
 <div class="slide-container">
-    <h2 class="slide-title">Phase 2: Agile Architecture Tiers</h2>
+    <h2 class="slide-title">Phase 2: Operational Hub Tiers</h2>
     <div class="content-area">
         <div class="table-layout">
             <table>
                 <thead>
                     <tr>
                         <th>Feature Scope</th>
-                        <th>MVP (Lightweight)<br><span style="font-size: 14px; font-weight: 400; color: #f8fafc;">₦800,000</span></th>
-                        <th>Tier 1 (Core)<br><span style="font-size: 14px; font-weight: 400; color: #94a3b8;">₦1,800,000</span></th>
-                        <th>Tier 2 (Suite)<br><span style="font-size: 14px; font-weight: 400; color: #94a3b8;">₦3,300,000</span></th>
+                        <th>Tier 1 (Core) <br>[RECOMMENDED]<br><span style="font-size: 14px; font-weight: 400; color: #f8fafc;">₦800,000</span></th>
+                        <th>Tier 2 (Suite)<br><span style="font-size: 14px; font-weight: 400; color: #94a3b8;">₦1,800,000</span></th>
+                        <th>Tier 3 (Enterprise)<br><span style="font-size: 14px; font-weight: 400; color: #94a3b8;">₦3,300,000</span></th>
+                        <th>Full ERP<br><span style="font-size: 14px; font-weight: 400; color: #94a3b8;">₦6,750,000</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Automated Requisition Routing</td>
+                        <td>Role-Based Secure Login</td>
+                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i><br><span style="font-size: 12px; color: #64748b;">(Uses Flat Form)</span></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Automated Financial Approvals</td>
                         <td><i class="fa-solid fa-check text-red"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
                     </tr>
                     <tr>
-                        <td>Hostinger VPS Automation Engine</td>
+                        <td>Domain Email Notifications</td>
                         <td><i class="fa-solid fa-check text-red"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
                     </tr>
                     <tr>
-                        <td>Secure Role-Based Dashboard Logins</td>
+                        <td>HR Calendars & Leave Requests</td>
                         <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
-                        <td><i class="fa-solid fa-check text-blue"></i></td>
-                        <td><i class="fa-solid fa-check text-blue"></i></td>
-                    </tr>
-                    <tr>
-                        <td>Enterprise Cloud Database (Supabase)</td>
-                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i><br><span style="font-size: 12px; color: #64748b;">(Uses Flat Sheets)</span></td>
+                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
                     </tr>
                     <tr>
-                        <td>HR Calendars & Admin CMS</td>
+                        <td>Dynamic Admin CMS</td>
                         <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
-                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i><br><span style="font-size: 12px; color: #64748b;">(Uploads Profiles)</span></td>
                         <td><i class="fa-solid fa-check text-blue"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Full ERP Modules</td>
+                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
+                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
+                        <td><i class="fa-solid fa-minus" style="color: #475569;"></i></td>
+                        <td><i class="fa-solid fa-check text-blue"></i><br><span style="font-size: 12px; color: #64748b;">(Finance, Payroll, Project Cost)</span></td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
-
-<div class="slide-container">
-    <h2 class="slide-title">VPS Architecture & Cloud Storage</h2>
-    <div class="content-area">
-        <div class="two-column">
-            <div>
-                <p>Regardless of the tier you choose, we deploy your automation logic on an isolated **Hostinger Virtual Private Server (VPS)**. This ensures your data routing never touches shared, unsecure public servers.</p>
-                <p><strong>Storage Scalability:</strong></p>
-                <ul>
-                    <li><strong style="color: #f8fafc;">MVP Level:</strong> Utilizes flat Google Workspace cloud architecture for zero-cost, lightweight data logging.</li>
-                    <li><strong style="color: #f8fafc;">Tier 1 & 2 Level:</strong> Upgrades to Supabase PostgreSQL. Military-grade cloud encryption with strict Row-Level Security for complex staff hierarchies.</li>
-                </ul>
-            </div>
-            <div>
-                <div class="pricing-block" style="background: rgba(56, 189, 248, 0.05); border-color: rgba(56, 189, 248, 0.2);">
-                    <div style="text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 10px; font-size: 14px; font-weight: 600;">Data Ownership</div>
-                    <div class="price" style="color: #38bdf8; font-size: 48px;">100%</div>
-                    <div class="sub-price" style="font-size: 18px;">Client-Owned Infrastructure</div>
-                    <p style="margin-top: 15px; font-size: 14px; color: #94a3b8;">You retain full legal ownership of your VPS domain, routing codebase, and cloud storage instances.</p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -234,32 +389,82 @@
         <div class="two-column highlight-numbers-layout">
             <div>
                 <div class="number">₦800k</div>
-                <div class="number-label">The MVP Entry Point</div>
-                <div class="naira-label">Maximum Speed & Agility</div>
+                <div class="number-label">Tier 1: Core Hub</div>
+                <div class="naira-label">Strategic First Step</div>
             </div>
             <div>
                 <h3>Protecting Your Cash Flow</h3>
-                <p>If capital agility is the priority, the ₦800k MVP is the perfect starting point. It solves the manual paper bottleneck immediately utilizing flat cloud storage.</p>
-                <p>Coupled with our **Continuous Digital Management Retainer (₦50k - ₦150k/month depending on tier)**, we monitor your VPS, handle security patches, and allow you to scale up to the Tier 1 Supabase database seamlessly when you outgrow the MVP.</p>
+                <p>We strongly recommend starting with Tier 1 Core Hub. This lightweight solution immediately solves your most painful bottleneck—financial requisitions and executive approvals—with minimal upfront risk.</p>
+                <p>This allows us to deploy the automated requisition engine and email triggers rapidly, utilizing flat cloud logging on an isolated VPS architecture, before you scale to more complex user accounts in later stages.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="slide-container">
-    <h2 class="slide-title">✨ Live Operational Assessment</h2>
+    <h2 class="slide-title">Enterprise Infrastructure & Security</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <p>Regardless of the tier you choose, we deploy your automation brain on an isolated, client-owned infrastructure. This ensures 100% legal data ownership and enterprise-grade security.</p>
+                <ul>
+                    <li><strong style="color: #f8fafc;">Isolated VPS Architecture:</strong> Your requisition logic runs on a dedicated Hostinger Virtual Private Server (VPS), fully isolated from public access.</li>
+                    <li><strong style="color: #f8fafc;">Scalable Cloud Database:</strong> Tier 1 uses lightweight flat cloud storage. Tiers 2-4 upgrade to Supabase PostgreSQL with military-grade encryption and strict Row-Level Security.</li>
+                </ul>
+            </div>
+            <div>
+                <div class="pricing-block">
+                    <div style="text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 10px; font-size: 14px; font-weight: 600;">Data Ownership</div>
+                    <div class="price">100%</div>
+                    <div class="sub-price">Client-Owned Infrastructure</div>
+                    <p style="margin-top: 15px; font-size: 14px; color: #94a3b8;">You retain full legal ownership of your VPS domain, automation codebase, and cloud storage instances.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">Continuous Digital Management</h2>
     <div class="content-area">
         <div class="two-column" style="align-items: center;">
             <div>
-                <h3 style="color: #f8fafc; margin-bottom: 15px;">Live ROI Projection</h3>
-                <p>Before we discuss kickoff, let's look at the actual data. Let's run a live assessment based on your current workload, and then test the actual automated requisition routing system right now.</p>
+                <h3 style="color: #f8fafc; font-size: 28px; margin-bottom: 20px;"><i class="fa-solid fa-fraction text-red" style="margin-right: 10px;"></i> Your Fractional IT Dept.</h3>
+                <p>An enterprise-grade financial system requires proactive oversight, security patching, and server management to remain secure, fast, and compliant.</p>
+                <p>This is a dedicated IT department at a fraction of the cost, ensuring your system remains an asset, never a liability.</p>
+            </div>
+            <div>
+                <div class="pricing-block" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2); padding: 30px; text-align: left;">
+                    <div style="text-transform: uppercase; letter-spacing: 0.1em; color: #10b981; margin-bottom: 10px; font-size: 14px; font-weight: 800;">Management Agreement</div>
+                    <div class="price" style="color: #f8fafc; font-size: 42px; margin-bottom: 5px;">₦150,000 <span style="font-size: 20px; color: #94a3b8; font-weight: 400;">/ Month</span></div>
+                    <ul style="margin-top: 15px; font-size: 16px; color: #94a3b8; list-style: none; padding: 0;">
+                        <li><i class="fa-solid fa-server text-green" style="margin-right: 8px;"></i> 24/7 VPS Uptime Monitoring & Maintenance.</li>
+                        <li><i class="fa-solid fa-shield-halved text-green" style="margin-right: 8px;"></i> Monthly Security Patches & Backups.</li>
+                        <li><i class="fa-solid fa-clock text-green" style="margin-right: 8px;"></i> Priority 24-hour SLA Support.</li>
+                    </ul>
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 3px solid #10b981;">
+                        <p style="margin: 0; color: #f8fafc; font-size: 15px; font-weight: 600;">✨ Bonus: For every 3 months on retainer, Vendorlift unlocks a new Tier 2 feature at no additional capital cost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="slide-container">
+    <h2 class="slide-title">✨ Operational Waste Assessment</h2>
+    <div class="content-area">
+        <div class="two-column" style="align-items: center;">
+            <div>
+                <h3 style="color: #f8fafc; margin-bottom: 15px;">Live ROI Analysis</h3>
+                <p>Imagine having an expert business consultant instantly analyze your operational waste. We input your current request volume and staff size. Our custom Gemini AI then calculates precisely how many hours and how much money IDPC can save by automating with Tier 1.</p>
             </div>
             <div class="ai-panel">
                 <div class="ai-input-group">
                     <input type="number" id="reqVolume" placeholder="Monthly Req. Volume (e.g. 150)">
                     <input type="number" id="staffSize" placeholder="Total Staff (e.g. 45)">
                 </div>
-                <button id="roiBtn" class="ai-btn" onclick="calculateROI()">Generate Custom ROI ✨</button>
+                <button id="roiBtn" class="ai-btn" onclick="calculateROI()">Analyze IDPC Savings ✨</button>
                 <div id="roiOutput" class="ai-output">
                     <p style="color: #64748b; font-style: italic; text-align: center; margin-top: 50px;">Awaiting current IDPC metrics...</p>
                 </div>
@@ -275,11 +480,11 @@
         <p style="margin-bottom: 40px;">Ready to automate your operations?</p>
         
         <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; display: inline-block; text-align: left;">
-            <p style="color: #f8fafc; font-weight: 600; font-size: 22px; margin-bottom: 20px;"><i class="fa-solid fa-file-signature text-red" style="margin-right: 10px;"></i> Next Steps</p>
+            <p style="color: #f8fafc; font-weight: 600; font-size: 22px; margin-bottom: 20px;"><i class="fa-solid fa-file-signature text-red" style="margin-right: 10px;"></i> Commitment Strategy</p>
             <ul style="list-style: none; padding: 0; margin: 0; color: #94a3b8; font-size: 18px;">
-                <li style="margin-bottom: 15px;">1. Approve completion of Phase 1 (₦500k) to initiate public domain launch.</li>
-                <li style="margin-bottom: 15px;">2. Select preferred Phase 2 Tier to match current operational budget.</li>
-                <li>3. Remit 50% mobilization fee to commence VPS architecture & routing.</li>
+                <li style="margin-bottom: 15px;">1. Approve completion of Phase 1 (₦387k) to initiate live domain launch.</li>
+                <li style="margin-bottom: 15px;">2. Remit 50% mobilization fee for Tier 1 (₦400k) to commence database architecture.</li>
+                <li>3. Activate the Continuous Digital Management Retainer Agreement (₦150k/mo).</li>
             </ul>
         </div>
     </div>
@@ -315,12 +520,12 @@
         }
 
         btn.disabled = true;
-        btn.innerHTML = "Analyzing Data... <i class='fa-solid fa-circle-notch fa-spin'></i>";
-        output.innerHTML = "<p style='color: #38bdf8; text-align: center; margin-top: 50px;'>✨ Gemini is analyzing IDPC's operational overhead...</p>";
+        btn.innerHTML = "Analyzing IDPC Data... <i class='fa-solid fa-circle-notch fa-spin'></i>";
+        output.innerHTML = "<p style='color: #38bdf8; text-align: center; margin-top: 50px;'>✨ Gemini is analyzing Innovarch's operational overhead...</p>";
 
-        const prompt = `Act as an expert financial consultant advising an engineering firm named IDPC. 
+        const prompt = `Act as an expert financial consultant advising an engineering firm named Innovarch/IDPC. 
         They currently process ${volume} financial requisitions manually every month and have a team of ${staff} staff members. 
-        They are considering investing between ₦800k to ₦3.3M in a new automated ERP portal.
+        They are considering investing ₦800,000 in a new automated ERP portal.
         Write a concise, punchy 2-paragraph executive summary explaining the projected ROI, the estimated hours saved per month, and why even the entry-level investment makes immediate financial sense.
         Keep it under 100 words. Format the response with HTML tags like <p> and <strong>.`;
 
@@ -338,10 +543,10 @@
             output.innerHTML = text;
         } catch (err) {
             console.error(err);
-            output.innerHTML = "<p style='color: #ef4444;'>Failed to generate ROI analysis. Please ensure your connection is active and try again.</p>";
+            output.innerHTML = "<p style='color: #ef4444;'>Failed to generate operational waste analysis. Please ensure your connection is active and try again.</p>";
         } finally {
             btn.disabled = false;
-            btn.innerHTML = "Generate Custom ROI ✨";
+            btn.innerHTML = "Analyze IDPC Savings ✨";
         }
     }
 </script>
